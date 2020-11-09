@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/siji/siji",
+    "pages/my/my",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "司机演示",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "black",
+    "list":[{
+      "pagePath": "pages/siji/siji",
+      "iconPath": "@vant/",
+      "text": "首页"
+    },{
+      "pagePath": "pages/my/my",
+      "iconPath": "",
+      "text": "我的"
+    }]
+  },
+  "usingComponents": {
+    "van-button":"./dist/icon/index"
+  },
+  "sitemapLocation": "sitemap.json"
+  
+}

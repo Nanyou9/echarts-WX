@@ -1,0 +1,41 @@
+/* pages/login/login.wxss */
+.login{
+  position: relative;
+  width: 80vw;
+  height: 100vh;
+  left:10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.van-field{
+  margin-top:30px;
+}
+.van-cell{
+  margin-bottom:30px;
+}
+.login_cont{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  text-align: center;
+}
+.top{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100vw
+}
+.login_cont image{
+  width: 200rpx;
+  height: 200rpx;
+  margin: auto;
+}
+.login_cont text{
+  margin: 40rpx;
+}
+.van-field__label{
+  text-align: left;
+}

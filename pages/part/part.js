@@ -1,4 +1,4 @@
-// pages/my/my.js
+// pages/part/part.js
 Page({
 
   /**
@@ -7,23 +7,34 @@ Page({
   data: {
 
   },
-  quitfn:function(){
-    wx.reLaunch({
-      url: '/pages/login/login'
+  partdetailFn(e){
+    let i=e.currentTarget.dataset.idx
+    wx.navigateTo({
+      url: '/pages/part/partdetail/partdetail?id='+i,
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  home: function () {
-    wx.navigateBack({
-      delta: 1,
-    })
-  },
   onLoad: function (options) {
-    let user=wx.getStorageSync('user')
-    this.setData({
-      "user":user
+    wx.setNavigationBarTitle({
+      title: '小订单列表'
+    })
+    let user= wx.getStorageSync('user')
+    let that=this
+    wx.request({
+      url: 'http://118.24.196.69:20017/Api/SJApi/SmallOrderList',
+      method:'POST',
+      data:{
+        OrderSN:options.id,
+        usercode:user
+      },
+      success(res){
+        let data=JSON.parse(res.data.data)
+        that.setData({
+          'partData':data
+        })
+      }
     })
   },
 

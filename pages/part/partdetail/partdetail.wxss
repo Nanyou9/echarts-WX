@@ -1,0 +1,7 @@
+/* pages/part/partdetail/partdetail.wxss */
+page{background: #e3e3e3;}
+.detail_cont{
+  padding: 15rpx 25rpx;
+  background-color: #fff;
+}
+._text{display: block;margin-bottom: 15rpx;}

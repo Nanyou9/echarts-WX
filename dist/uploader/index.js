@@ -80,7 +80,6 @@ VantComponent({
           deletable: isBoolean(item.deletable) ? item.deletable : true,
         })
       );
-      console.log(lists);
       this.setData({ lists, isInCount: lists.length < maxCount });
     },
     getDetail(index) {
@@ -98,7 +97,6 @@ VantComponent({
         })
       )
         .then((res) => {
-          console.log(res);
           this.onBeforeRead(multiple ? res : res[0]);
         })
         .catch((error) => {

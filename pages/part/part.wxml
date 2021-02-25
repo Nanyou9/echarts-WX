@@ -1,0 +1,19 @@
+<!--pages/part/part.wxml-->
+<view>
+  <view class="order_cont">
+      <view class="order_item" wx:for="{{partData}}" wx:key="index">
+        <view class="order_tit">
+          <text class="bold">订单编号：{{item.OrderSN}}</text><text class="color_ray" bindtap="partdetailFn" data-idx="{{item.OrderID}}">查看详情 ></text>
+        </view>
+          <view class="margin_top">客户名称：{{item.CustomerName}}</view>
+          <view class="margin_top">物料名称：{{item.MateriailName}}</view>
+        <view class="margin_top part_bottom">
+          <view>时间：{{item.CreateTime}}</view>
+          <view class="">
+            <van-tag wx:if="{{item.FlowStates==19}}" type="success">已完成</van-tag>
+            <van-tag wx:else type="warning">进行中</van-tag>
+          </view>
+        </view>
+      </view>
+  </view>
+</view>

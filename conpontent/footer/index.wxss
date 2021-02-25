@@ -1,0 +1,59 @@
+.va{
+  bottom:0rpx;
+  height:150rpx;
+  z-index:999;
+}
+
+.activeh{
+  flex-direction:column;
+  width:375rpx;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align:center;
+  flex-direction:column;
+  flex-wrap:wrap;
+}
+.activem{
+  flex-direction:column;
+  width:375rpx;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align:center;
+  flex-direction:column;
+  flex-wrap:wrap;
+}
+.footer .tabber .home p{
+ color:rgb(59, 59, 59);
+ font-weight: 550;
+}
+.footer .tabber .me p{
+  position: relative;
+  color:rgb(59, 59, 59);
+  font-weight: 550;
+ }
+.footer .tabber .activeh{
+  background: #c1c1c1;
+  width: 375rpx;
+  flex:1;
+  flex-direction:column;
+}
+
+.footer .tabber .activeh p{
+ color:#e0e3e4;
+ font-weight: 600;
+}
+.footer .tabber .activem{
+  background: #c1c1c1;
+  width: 375rpx;
+  flex:1;
+  flex-direction:column;
+}
+
+.footer .tabber .activem p{
+   color:#e0e3e4;
+   font-weight: 600;
+}

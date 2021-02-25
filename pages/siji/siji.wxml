@@ -1,2 +1,75 @@
-<!--pages/siji.wxml-->
-<text>pages/siji.wxml</text>
+
+<van-dropdown-menu  >
+  <span class="area"  bindtap="area">选择区域及单位</span><van-icon bindtap="area" style="float:left;margin-left:30px" name="arrow-down" />
+  <span class="year"  bindtap="year">选择日期</span><van-icon  bindtap="year" style="float:right;margin-right:30px" name="arrow-down" />
+  </van-dropdown-menu>
+   <view hidden="{{!showEchart}}" style="position: relative;top:3px;font-weight:550;font-size:14px;width:100vw;text-align: center;">{{areas}}</view>
+   <view wx:if="{{isyear}}"  hidden="{{!showEchart}}" style="position: relative;top:5px;font-weight:550;font-size:14px;width:100vw;text-align: center;">{{year +'年'+'收运量(吨)报表'}}</view>
+   <view wx:if="{{isyear}}"  hidden="{{!showEchart}}" style="position: relative;top:5px;font-weight:550;font-size:14px;width:100vw;text-align: center;">{{'年收运总数:'+dayweight+'吨'}}</view>
+   <view wx:if="{{ismonth}}" hidden="{{!showEchart}}" style="position: relative;top:5px;font-weight:550;font-size:14px;width:100vw;text-align: center;">{{year +'年' + month +'月'+'收运量(吨)报表'}}</view>
+   <view wx:if="{{ismonth}}"  hidden="{{!showEchart}}" style="position: relative;top:5px;font-weight:550;font-size:14px;width:100vw;text-align: center;">{{'月收运总数:'+dayweight+'吨'}}</view>
+   <view wx:if="{{isday}}" hidden="{{!showEchart}}" style="position: relative;top:5px;font-weight:550;font-size:14px;width:100vw;text-align: center;">{{year +'年' + month +'月' +day +'日' +'收运量(吨)报表'}}</view>
+   <view wx:if="{{isday}}"  hidden="{{!showEchart}}" style="position: relative;top:5px;font-weight:550;font-size:14px;width:100vw;text-align: center;">{{'日收运总数:'+dayweight+'吨'}}</view>
+   <view  hidden="{{!showpie}}" style="position: relative;top:5px;margin-bottom:20px;font-weight:550;font-size:14px;width:100vw;text-align: center;">{{areas  + '近五年年报表'}}</view>
+  <image wx:if="{{!isHome}}" bindtap="back" style="position: fixed;top:125px;right:35px;width:35px;height:35px" src="../../images/back.png"></image>
+   <view>
+   
+    <van-button wx:if="{{showEchart}}" style="float:left;margin-top:10px;margin-left:10px;" size="mini" bind:click="onYear" round type="primary">显示年数据</van-button>
+    <van-button wx:if="{{showEchart}}" style="float:left;margin-top:10px;margin-left:10px;" size="mini" bind:click="onMonth" round type="info">显示月数据</van-button>
+    <!-- <image style="float:right;margin-top:10px;margin-right:25px;width:24px;height:24px" bindtap="pie" src="{{pie}}"></image>
+   <image style="float:right;margin-top:10px;margin-right:15px;width:24px;height:24px" bindtap="bar" src="{{bar}}"></image> -->
+
+   </view>
+  <view class="echat">
+   <view class="container" hidden="{{!showEchart}}">
+      <ec-canvas id="mychart"  canvas-id="mychart" ec="{{ ec }}"></ec-canvas>
+    </view>
+    <view class="container" hidden="{{!showpie}}">
+    <ec-canvas id="mychart1"  canvas-id="mychart1" ec="{{ ec1 }}"></ec-canvas>
+    </view>
+  </view>
+<view class="footer" hidden="{{!showEchart && !showpie}}">
+  <view class="tabber">
+      <view class="{{home}}" bindtap="home">
+        <span><van-icon name="bar-chart-o" size="80rpx" color="{{colorh}}"/></span>
+       <p>汇总查询</p>
+      </view>
+      <view class="search" bindtap="search">
+        <span><van-icon name="search" size="80rpx" color="{{colorh}}"/></span>
+       <p style="color:rgb(59, 59, 59);font-weight:550">单个查询</p>
+      </view>
+      
+      <view class="{{me}}" bindtap="me">
+        <span><van-icon name="user-o" size="80rpx" color="{{colorm}}"/></span>
+        <p>我的</p>
+      </view>
+  </view>
+</view>
+
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  custom-style="height: 30%;"
+  bind:close="Close">
+<!--<van-picker columns="{{ columns }}" show-toolbar bind:confirm="map" bind:cancel="close"  />-->
+<van-datetime-picker
+  type="date"
+  value="{{ currentDate }}"
+  bind:input="onInput"
+  bind:confirm="onDate"
+  bind:cancel="onCancel"
+  min-year="{{minYear}}"
+  max-year="{{ maxDate }}"
+  formatter="{{ formatter }}"
+/>
+</van-popup>
+<van-popup
+  show="{{ show1 }}"
+  position="bottom"
+  custom-style="height: 30%;"
+  bind:close="Close">
+<!--<van-picker columns="{{ columns }}" show-toolbar bind:confirm="map" bind:cancel="close"  />-->
+<van-picker show-toolbar columns="{{ area }}" bind:change="onArea"  title="选择区域"  bind:cancel="onCancel" 
+  bind:confirm="ConfirmArea"/>
+</van-popup>
+<van-toast id="van-toast" />

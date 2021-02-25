@@ -1,0 +1,56 @@
+<van-dropdown-menu  >
+  <span class="area"  bindtap="area">选择区域及单位</span><van-icon style="float:left;margin-left:30px" name="arrow-down" />
+  <span class="year"  bindtap="year">选择日期</span><van-icon style="float:right;margin-right:30px" name="arrow-down" />
+  </van-dropdown-menu>
+   <view hidden="{{!showEchart}}" style="position: relative;top:10px;font-weight:550;font-size:14px;width:100vw;text-align: center;">{{areas + supplier}}</view>
+   <view hidden="{{!showEchart}}" style="position: relative;top:10px;font-weight:550;font-size:14px;width:100vw;text-align: center;">{{year + mounth +'收运量(吨)报表'}}</view>
+   <view wx:if="{{!isday}}" hidden="{{!showEchart}}" style="position: relative;top:10px;font-weight:550;font-size:14px;width:100vw;text-align: center;">{{'年收运总数:'+echartData.sunWeighCount+'吨'}}</view>
+   <view wx:if="{{isday}}"  hidden="{{!showEchart}}" style="position: relative;top:10px;font-weight:550;font-size:14px;width:100vw;text-align: center;">{{'月收运总数:'+dayweigh+'吨'}}</view>
+   <view  hidden="{{!showpie}}" style="position: relative;top:10px;margin-bottom:20px;font-weight:550;font-size:14px;width:100vw;text-align: center;">{{areas  + '近五年年报表'}}</view>
+
+   <view>
+   </view>
+  <view class="echat">
+   <view class="container" hidden="{{!showEchart}}">
+      <ec-canvas id="mychart"  canvas-id="mychart" ec="{{ ec }}"></ec-canvas>
+    </view>
+    <view class="container" hidden="{{!showpie}}">
+    <ec-canvas id="mychart1"  canvas-id="mychart1" ec="{{ ec1 }}"></ec-canvas>
+    </view>
+  </view>
+<view class="footer" hidden="{{!showEchart && !showpie}}">
+  <view class="tabber">
+      <view class="{{home}}" bindtap="home">
+        <span><van-icon name="bar-chart-o" size="80rpx" color="{{colorh}}"/></span>
+       <p>汇总查询</p>
+      </view>
+      <view class="search" >
+        <span><van-icon name="search" size="80rpx" color="{{colorh}}"/></span>
+       <p style="color:rgb(59, 59, 59);font-weight:550">单个查询</p>
+      </view>
+      
+      <view class="{{me}}" bindtap="me">
+        <span><van-icon name="user-o" size="80rpx" color="{{colorm}}"/></span>
+        <p>我的</p>
+      </view>
+  </view>
+</view>
+
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  custom-style="height: 30%;"
+  bind:close="Close">
+<!--<van-picker columns="{{ columns }}" show-toolbar bind:confirm="map" bind:cancel="close"  />-->
+<van-picker show-toolbar columns="{{ cos }}" bind:change="onDate"  title="选择日期"  bind:cancel="onCancel"
+  bind:confirm="onConfirm"/>
+</van-popup>
+<van-popup
+  show="{{ show1 }}"
+  position="bottom"
+  custom-style="height: 30%;"
+  bind:close="Close">
+<!--<van-picker columns="{{ columns }}" show-toolbar bind:confirm="map" bind:cancel="close"  />-->
+<van-picker show-toolbar columns="{{ area }}" bind:change="onArea"  title="选择区域及单位"  bind:cancel="onCancel" 
+  bind:confirm="ConfirmArea"/>
+</van-popup>

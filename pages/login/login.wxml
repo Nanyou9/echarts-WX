@@ -1,0 +1,30 @@
+<!--pages/login/login.wxml-->
+<image class="top" src="../../images/topbg.jpg"></image>
+<view class="login">
+<view class="login_cont">
+<van-cell-group style="margin-top: 400rpx;">
+  <van-field
+  model:value="{{username}}"
+    required
+    clearable
+    label="用户名："
+    left-icon="contact"
+    placeholder="请输入用户名"
+    bind:change="onChange"
+  />
+
+  <van-field
+    value="{{password}}"
+    type="password"
+    label="密码："
+    left-icon="eye-o"
+    placeholder="请输入密码"
+    required
+    clearable
+    bind:change="onChange1"
+  />
+</van-cell-group>
+<van-button custom-style="margin-top:30rpx;border-color: #16bd13;" color="#35b525"  block bindtap="longin">登录</van-button>
+</view> 
+<van-toast id="van-toast" />
+</view>

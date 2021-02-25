@@ -1,2 +1,10 @@
 <!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view style="height:100vh;width:100vw">
+<view class="cont_tit">
+  <view class="_cont">
+    {{user}}
+  </view>
+</view>
+
+<van-button custom-class="btn" type="danger"  bindtap="quitfn">退出登录</van-button>
+</view>

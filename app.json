@@ -1,33 +1,22 @@
 {
   "pages": [
     "pages/siji/siji",
+    "pages/login/login",
+    "pages/part/partdetail/partdetail",
     "pages/my/my",
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/search/search",
+    "pages/part/part"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "司机演示",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#4367FB",
+    "navigationBarTitleText": "简阳粤丰垃圾收运",
+    "navigationBarTextStyle": "white"
   },
-  "tabBar": {
-    "color": "#a9b7b7",
-    "selectedColor": "#11cd6e",
-    "borderStyle": "black",
-    "list":[{
-      "pagePath": "pages/siji/siji",
-      "iconPath": "@vant/",
-      "text": "首页"
-    },{
-      "pagePath": "pages/my/my",
-      "iconPath": "",
-      "text": "我的"
-    }]
-  },
+  
   "usingComponents": {
-    "van-button":"./dist/icon/index"
+    "van-button": "/dist/button",
+    "van-icon": "/dist/icon/index"
   },
   "sitemapLocation": "sitemap.json"
-  
 }

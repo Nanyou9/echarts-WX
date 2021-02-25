@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-field": "/dist/field",
+    "van-toast": "/dist/toast"
+  }
+}

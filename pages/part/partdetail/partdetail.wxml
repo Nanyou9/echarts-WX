@@ -1,0 +1,20 @@
+<!--pages/part/partdetail/partdetail.wxml-->
+<view>
+  <van-steps steps="{{ steps }}" active="{{ active }}" />
+</view>
+<view class="detail_cont">
+  <text class="_text">订单编号：{{detailData.OrderSN}}</text>
+  <text class="_text">订单类型：{{detaulData.OrderType==1?'销售订单':'采购订单'}}</text>
+  <text class="_text">智能卡号：{{detailData.IntelligentCardNo}}</text>
+  <text class="_text">物料名称：{{detailData.MaterialName}}</text>
+  <text class="_text">车牌号：{{detailData.VehicleNo}}</text>
+  <text class="_text">司机姓名：{{detailData.DriverName}}</text>
+  <text class="_text">司机手机号：{{detailData.Phone}}</text>
+  <text class="_text">首次收运：{{detailData.FirstWeight}}</text>
+  <text class="_text">二次收运：{{detailData.SecondWeight}}</text>
+  <text class="_text">扣水：{{detailData.DeductWater}}</text>
+  <text class="_text">扣杂：{{detailData.DeductDopant}}</text>
+  <text class="_text">毛重：{{detailData.RoughWeight}}</text>
+  <text class="_text">皮重：{{detailData.TareWeight}}</text>
+  <text class="_text">备注：{{detailData.Note}}</text>
+</view>
